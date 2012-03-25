@@ -47,9 +47,7 @@ template <typename T>
 template <typename T>
 	bool if_match(T x_curr, vector<T> x_vec) {
 		vector<int>::iterator it;
-		it = find(x_vec.begin(),x_vec.end(),x_curr);
-		if ( it != x_vec.end() ) return true;
-		return false;
+		return find(x_vec.begin(), x_vec.end(), x_curr) != x_vec.end();
 	}
 
 template <typename T>

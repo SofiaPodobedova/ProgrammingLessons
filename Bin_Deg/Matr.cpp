@@ -88,9 +88,9 @@ public:
 	}
 	const bool operator==(const VMatrix& b){
 		if(m_n[0]!=b.m_n[0] || m_n[1]!=b.m_n[1]) return false;
-		for(m=0; m<m_n[0]; m++)
-			for(n=0; n<m_n[1]; n++)
-				if (m_a[m][n]!=b.m_a[m][n];) return false;
+		for(int m=0; m<m_n[0]; m++)
+			for(int n=0; n<m_n[1]; n++)
+				if (m_a[m][n]!=b.m_a[m][n]) return false;
 		return true;
 	}
 	DBL& operator()(int i, int j) const
@@ -100,6 +100,9 @@ public:
 	void set(DBL a, int i, int j) {
 		m_a[i][j] = a;
 		return;
+	}
+	int getSize() {
+		return m_n[0];
 	}
 	void Transp(int m=0) {
 		int i, j, dim=m ? m : __min(m_n[0], m_n[1]);

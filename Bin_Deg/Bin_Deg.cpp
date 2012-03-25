@@ -27,10 +27,10 @@ public:
 template< class T>
 class MatrixBinFunc {
 public:
-	MatrixBinFunc() {};
-	MatrixBinFunc(const VMatrix<T>& matr) {
+	MatrixBinFunc(int n) {m_s=n;};
+	/*MatrixBinFunc(const VMatrix<T>& matr) {
 		m_s = matr.getSize();
-	}
+	}*/
 	VMatrix<T> unity() const {
 		return unity_matr<T>(m_s);
 	}
@@ -75,8 +75,7 @@ int main()
 			REQUIRE(pow(a, n, f) == powLinear(a, n, f), "Results differ, " << powLinear(a, n, f) << " expected, but " << pow(a, n, f) << " provided.");
 		}
 	}
-	MatrixBinFunc<int> f_pr;
-	f_pr.setSize(2);
+	MatrixBinFunc<int> f_pr(2);
 	for(int a = 1; a < 6; a++)
 		for(int b = 1; b < 6; b++)
 			for(int c = 1; c < 6; c++)
@@ -99,8 +98,7 @@ int main()
 			matr.set(curr,i,j);
 		}
 	int deg;
-	MatrixBinFunc<int> f_matr;
-	f_matr.setSize(m_s);
+	MatrixBinFunc<int> f_matr(m_s);
 	cin >> deg;
 	VMatrix<int> val = pow(matr, deg, f_matr);
 	for (int i = 0; i < m_s; i++)

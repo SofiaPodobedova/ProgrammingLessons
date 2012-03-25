@@ -33,7 +33,7 @@ template <typename T>
 	}
 
 template <typename T>
-	int cycle_length_calc( T x0, Transformation<T>& transformation){
+	int cycle_length_calc(T x0, Transformation<T>& transformation){
 		T x_w = search_element_in_cycle(x0,transformation);
 		T x_curr = x_w;
 		int l = 1;
@@ -51,7 +51,7 @@ template <typename T>
 	}
 
 template <typename T>
-	int linear_memory( T x0, Transformation<T>& transformation) {
+	int linear_memory(T x0, Transformation<T>& transformation) {
 		vector<T> x_vec;
 		T x_curr = x0;
 		while(!(if_match(x_curr, x_vec))){
